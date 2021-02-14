@@ -1,4 +1,6 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {RecordDate} from '../model/recordDate';
+
 
 @Component({
   selector: 'app-add-record',
@@ -7,11 +9,11 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 })
 export class AddRecordComponent implements OnInit {
   jogDate: Date;
+  record: RecordDate;
   jogDistance: number;
   jogTime: number;
-  @Output() inputedItem1: EventEmitter<Date> = new EventEmitter();
-  @Output() inputedItem2: EventEmitter<number> = new EventEmitter();
-  @Output() inputedItem3: EventEmitter<number> = new EventEmitter();
+  @Output() inputedItem: EventEmitter<RecordDate> = new EventEmitter();
+
 
   constructor() {
 }
@@ -21,8 +23,7 @@ export class AddRecordComponent implements OnInit {
 
   // tslint:disable-next-line:typedef
   addItem(jogDate: Date, jogDistance: number, jogTime: number){
-    this.inputedItem1.emit(jogDate);
-    this.inputedItem2.emit(jogDistance);
-    this.inputedItem3.emit(jogTime);
+    this.record = new RecordDate(jogDate, jogDistance, jogTime);
+    this.inputedItem.emit(this.record);
   }
 }

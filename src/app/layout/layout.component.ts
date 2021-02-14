@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {RecordDate} from '../model/recordDate';
 
 @Component({
   selector: 'app-layout',
@@ -6,12 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./layout.component.scss']
 })
 export class LayoutComponent implements OnInit {
-  inputedItems1 = [];
-  jogDate: Date;
-  inputedItems2 = [100, 350];
-  jogDistance: number;
-  inputedItems3 = [60, 135];
-  jogTime: number;
+  inputedItems: RecordDate[] = [];
 
   constructor() { }
 
@@ -19,9 +15,8 @@ export class LayoutComponent implements OnInit {
   }
 
   // tslint:disable-next-line:typedef
-  addItems(newitem1: Date, newitem2: number, newitem3: number){
-    this.inputedItems1.unshift(newitem1);
-    this.inputedItems2.unshift(newitem2);
-    this.inputedItems3.unshift(newitem3);
+  addItems(newItem: RecordDate){
+    this.inputedItems.unshift(newItem);
   }
 }
+
