@@ -2,17 +2,15 @@
     <h2>Add record</h2>
 
   <p>Jogging date:</p>
-  <input type="date" placeholder="dd-mm-yyyy" >
+  <input type="date" placeholder="dd-mm-yyyy" name="jogDate" [(ngModel)]="jogDate">
 
   <p>Distance (m)</p>
-  <input type="number" placeholder=" 0 ">
+  <input type="number" placeholder=" 0 " name="jogDistance" [(ngModel)]="jogDistance">
 
   <p>Time (s)</p>
-  <input type="number" placeholder=" 0 ">
+  <input type="number" placeholder=" 0 " name="jogTime" [(ngModel)]="jogTime">
 
   <form style="margin-top: 10px">
-    <button type = "button"  style = "width: 60px; height:40px;">
-      <b>Save</b>
-    </button>
+    <button (click)="addItem(jogDate, jogDistance, jogTime)">Save</button>
   </form>
 </div>
